@@ -1,14 +1,21 @@
 package br.com.alura.appmusic.modelos;
 
 public class MinhasPreferidas {
+    public void inclui(Audio audio) {
+        String mensagemPrincipal;
 
-    public void inclui(Audio audio){
-        if (audio.getClassificacao() >= 9){
-            System.out.println(audio.getTitulo() + " é considerado sucesso absoluto," +
-                    " o preferido da galera!");
+        if (audio.getClassificacao() >= 8) {
+            mensagemPrincipal = "Todo mundo está curtindo O " + audio.getTitulo() ;
         } else {
-            System.out.println(audio.getTitulo() + " também é um dos que todo mundo está" +
-                    " curtindo");
+            mensagemPrincipal = audio.getTitulo() +  " é considerado sucesso absoluto entre nossos ouvintes!";
+        }
+
+        System.out.println(mensagemPrincipal);
+
+        if (audio instanceof Podcast podcast) {
+            System.out.println("Esse Podcast é apresentado pelo " + podcast.getApresentador());
+        } else if (audio instanceof Musica musica) {
+            System.out.println("Esse sucesso é cantado pelo " + musica.getCantor());
         }
     }
 }
